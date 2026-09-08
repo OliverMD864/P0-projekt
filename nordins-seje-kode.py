@@ -8,11 +8,11 @@ def main():
     print("| King Domino points calculator |")
     print("+-------------------------------+")
 
-    folder_path = r"C:\Users\nordi\Uni-git\daki_p0\King Domino dataset"
+    folder_path = r"King Domino dataset"
     folderLen = len(os.listdir(folder_path))
 
     for file in range(1, folderLen + 1):
-        image_path = fr"C:\Users\nordi\Uni-git\daki_p0\King Domino dataset\{file}.jpg"
+        image_path = fr"{folder_path}\{file}.jpg"
 
         if not os.path.isfile(image_path):
             print(f"Image {file} not found")
