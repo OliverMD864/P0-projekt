@@ -38,7 +38,7 @@ def get_terrain(tile):
         return "Field"
     if 27.7865 < hue < 61.4561 and 64.4392 < saturation < 207.1959 and 41.4891 < value < 67.6012:
         return "Forest"
-    if 0 < hue < 0 and 0 < saturation < 0 and 0 < value < 0:
+    if 44.2007 < hue < 107.9628 and 95.1138 < saturation < 252.0427 and 51.0296 < value < 188.1554:
         return "Lake"
     if 31.9257 < hue < 50.9094 and 144.6177 < saturation < 219.5125 and 90.9712 < value < 155.549:
         return "Grassland"
