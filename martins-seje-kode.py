@@ -34,9 +34,9 @@ def get_terrain(tile):
     hsv_tile = cv.cvtColor(tile, cv.COLOR_BGR2HSV)
     hue, saturation, value = np.mean(hsv_tile, axis=(0,1)) # Consider using median instead of mean
     print(f"H: {hue}, S: {saturation}, V: {value}")
-    if 0 < hue < 0 and 0 < saturation < 0 and 0 < value < 0:
+    if 21.1051 < hue < 29.3502 and 200.7676 < saturation < 252.1913 and 134.2711 < value < 198.6451:
         return "Field"
-    if 0 < hue < 0 and 0 < saturation < 0 and 0 < value < 0:
+    if 27.7865 < hue < 61.4561 and 64.4392 < saturation < 207.1959 and 41.4891 < value < 67.6012:
         return "Forest"
     if 0 < hue < 0 and 0 < saturation < 0 and 0 < value < 0:
         return "Lake"
