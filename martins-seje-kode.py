@@ -42,11 +42,11 @@ def get_terrain(tile):
         return "Lake"
     if 0 < hue < 0 and 0 < saturation < 0 and 0 < value < 0:
         return "Grassland"
-    if 0 < hue < 0 and 0 < saturation < 0 and 0 < value < 0:
-        return "Swamp"
     if 20.1137 < hue < 38.3629 and 68.9848 < saturation < 158.7524 and 72.2139 < value < 126.0819:
         return "Swamp"
     if 28.3604 < hue < 57.9104 and 63.1033 < saturation < 151.493 and 45.8882 < value < 79.8493:
+        return "Swamp"
+    if 0 < hue < 0 and 0 < saturation < 0 and 0 < value < 0:
         return "Home"
     return "Unknown"
 
