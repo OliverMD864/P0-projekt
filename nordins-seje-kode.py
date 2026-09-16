@@ -8,8 +8,8 @@ def main():
     print("| King Domino points calculator |")
     print("+-------------------------------+")
 
-    folder_path = r"King Domino dataset"
-    folderLen = len(os.listdir(folder_path))
+    folder_path = r"traeningset"
+    folderLen = 75
 
     for file in range(1, folderLen + 1):
         image_path = fr"{folder_path}\{file}.jpg"
@@ -31,8 +31,8 @@ def process_tiles(tiles):
     for y, row in enumerate(tiles):
         for x, tile in enumerate(row):
             terrain = get_terrain(tile)
-            if terrain == "Unknown":
-                return False  # signal: stop everything
+            # if terrain == "Unknown":
+            #     return True  # signal: stop everything
             print(f"Tile ({x}, {y}):")
             print(terrain)
             print("=====")
