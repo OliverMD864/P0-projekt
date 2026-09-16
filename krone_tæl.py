@@ -28,7 +28,7 @@ def get_tiles(image):
     for y in range(5):
         tiles.append([])
         for x in range(5):
-            tiles[-1].append(image[y*100:(y+1)*100, x*100:(x+1)*100])
+            tiles[-1].append(image[y*33:(y+1)*33, x*33:(x+1)*33])
     return tiles
 
 # Determine the type of terrain in a tile
