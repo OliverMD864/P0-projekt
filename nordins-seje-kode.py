@@ -8,7 +8,7 @@ def main():
     print("| King Domino points calculator |")
     print("+-------------------------------+")
 
-    folder_path = r"traeningset"
+    folder_path = r"KingDominoTestsaet"
     folderLen = 75
 
     for file in range(1, folderLen + 1):

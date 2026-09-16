@@ -46,7 +46,7 @@ def get_terrain(tile):
         return "Swamp"
     if 0 < hue < 0 and 0 < saturation < 0 and 0 < value < 0:
         return "Mine"
-    if 0 < hue < 0 and 0 < saturation < 0 and 0 < value < 0:
+    if 28.3604 < hue < 57.9104 and 63.1033 < saturation < 151.493 and 45.8882 < value < 79.8493:
         return "Home"
     return "Unknown"
 
