@@ -21,6 +21,8 @@ def main():
             print(f"Tile ({x}, {y}):")
             print(get_terrain(tile))
             print("=====")
+            with open("right_and_wrong_txt.txt", "a") as f:
+                f.write(str(get_terrain(tile)) + "\n")
 
 # Break a board into tiles
 def get_tiles(image):

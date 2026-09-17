@@ -10,48 +10,8 @@ wrong_button_was_pressed = False
 
 margin=2
 image_path = r"KingDominoTestsaet\74.jpg"
-
-# Main function containing the backbone of the program
-def main():
-    
-    if not os.path.isfile(image_path):
-        print("Image not found")
-        return
-    image = cv.imread(image_path)
-    tiles = get_tiles(image)
-# Break a board into tiles
-def get_tiles(image):
-    tiles = []
-    for y in range(5):
-        tiles.append([])
-        for x in range(5):
-            tiles[-1].append(image[y*100:(y+1)*100, x*100:(x+1)*100])
-    return tiles
-terrain = ""
-# Determine the type of terrain in a tile
-def get_terrain(tile):
-    hsv_tile = cv.cvtColor(tile, cv.COLOR_BGR2HSV)
-    hue, saturation, value = np.median(hsv_tile, axis=(0,1))
-
-    if (23-margin) <= hue <= (43+margin) and (40-margin) <= saturation <= (155+margin) and (29.5-margin) <= value <= (47+margin):
-        return "Mine"
-    if (23-margin) <= hue <= (26+margin) and (223-margin) <= saturation <= (255+margin) and (145-margin) <= value <= (205+margin):
-        return "Field"
-    if (23-margin) <= hue <= (66+margin) and (65-margin) <= saturation <= (222+margin) and (37-margin) <= value <= (68+margin):
-        return "Forest"
-    if (104-margin) <= hue <= (108+margin) and (232-margin) <= saturation <= (255+margin) and (123-margin) <= value <= (191+margin):
-        return "Lake"
-    if (37-margin) <= hue <= (51+margin) and (156-margin) <= saturation <= (238+margin) and (92-margin) <= value <= (166+margin):
-        return "Grassland"
-    if (20-margin) <= hue <= (25+margin) and (62-margin) <= saturation <= (157+margin) and (33-margin) <= value <= (130+margin):
-        return "Swamp"
-    if (17-margin) <= hue <= (38+margin) and (41-margin) <= saturation <= (128+margin) and (64-margin) <= value <= (123+margin):
-        return "Home"
-    else:
-        return "Unknown"
-
-if __name__ == "__main__":
-    main()
+answers_path = open("right_and_wrong_txt.txt", "r").readlines()
+answers_len = len(answers_path)
 
 
 pygame.init()
@@ -79,9 +39,9 @@ while run_flag:
 
         screen.blit(pic_sprite, (50,0))
 
-        # write gettarrain to the screen
+        # write answer to the screen
         font = pygame.font.Font(None, 36)
-        terrain_text = font.render(get_terrain(*pos[image_num]*100), True, (0, 0, 0))
+        terrain_text = font.render("Hi", True, (0, 0, 0))
         screen.blit(terrain_text, (50, 100))
 
 
