@@ -2,7 +2,9 @@ import pygame
 
 pos = [(0,0),(1,0),(2,0),(3,0),(4,0),(0,1),(1,1),(2,1),(3,1),(4,1),(0,2),(1,2),(2,2),(3,2),(4,2),(0,3),(1,3),(2,3),(3,3),(4,3),(0,4),(1,4),(2,4),(3,4),(4,4)]
 image_num = 0
-left_was_pressed = False
+right_button_was_pressed = False
+wrong_button_was_pressed = False
+
 
 
 pygame.init()
@@ -27,16 +29,37 @@ while run_flag:
 
         keys = pygame.key.get_pressed()
 
-        screen.blit(pic_sprite, (25, 25))
+        screen.blit(pic_sprite, (50,0))
 
-        # FIKS MIG
-        if keys[pygame.K_LEFT] and not left_was_pressed:
-            image_num += 1
+        # make a button for the right image
+        right_button = pygame.Rect(150, 150, 50, 50)
+        pygame.draw.rect(screen, (0, 255, 0), right_button)
 
-        left_was_pressed = keys[pygame.K_LEFT]
+        # make a button for the wrong image
+        wrong_button = pygame.Rect(0, 150, 50, 50)
+        pygame.draw.rect(screen, (255, 0, 0), wrong_button)
+
+        # check if the button is pressed
+        if right_button.collidepoint(pygame.mouse.get_pos()) and not right_button_was_pressed:
+            if pygame.mouse.get_pressed()[0]:
+                image_num += 1
+                if image_num > 24:
+                    image_num = 0   
+
+        # check if the wrong button is pressed
+        if wrong_button.collidepoint(pygame.mouse.get_pos()) and not wrong_button_was_pressed:
+            if pygame.mouse.get_pressed()[0]:
+                image_num += 1
+                if image_num > 24:
+                    image_num = 0
+
+
+        
+        right_button_was_pressed = right_button.collidepoint(pygame.mouse.get_pos()) and pygame.mouse.get_pressed()[0]
+        wrong_button_was_pressed = wrong_button.collidepoint(pygame.mouse.get_pos()) and pygame.mouse.get_pressed()[0]
 
         pygame.display.flip()
-        clock.tick(60)
+        
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
