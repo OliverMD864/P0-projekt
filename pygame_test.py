@@ -42,6 +42,9 @@ while run_flag:
         # check if the button is pressed
         if right_button.collidepoint(pygame.mouse.get_pos()) and not right_button_was_pressed:
             if pygame.mouse.get_pressed()[0]:
+                # save the image number to a file
+                with open("right_and_wrong_txt.txt", "a") as f:
+                    f.write(str(pos[image_num]) + "rigtig\n")
                 image_num += 1
                 if image_num > 24:
                     image_num = 0   
@@ -49,6 +52,9 @@ while run_flag:
         # check if the wrong button is pressed
         if wrong_button.collidepoint(pygame.mouse.get_pos()) and not wrong_button_was_pressed:
             if pygame.mouse.get_pressed()[0]:
+                # save the image number to a file
+                with open("right_and_wrong_txt.txt", "a") as f:
+                    f.write(str(pos[image_num]) + "forkert\n")
                 image_num += 1
                 if image_num > 24:
                     image_num = 0
