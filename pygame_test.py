@@ -9,8 +9,8 @@ right_button_was_pressed = False
 wrong_button_was_pressed = False
 
 margin=2
-image = 74
-image_path = rf"KingDominoTestsaet\{image}.jpg"
+image = 72
+image_path = rf"King Domino dataset\{image}.jpg"
 answers_path = open(f"answer{image}.txt", "r").readlines()
 answers_len = len(answers_path)
 

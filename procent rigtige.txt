@@ -7,3 +7,11 @@ Nr.44 80% rigtig
 Nr.54 96% rigtig
 Nr.64 80% rigtig
 Nr.74 96% rigtig
+Nr.2 88% rigtig
+Nr.12 100% rigtig
+Nr.22 96% rigtig
+Nr.32 72% rigtig
+Nr.42 80% rigtig
+Nr.52 80% rigtig
+Nr.62 76% rigtig
+Nr.72 76% rigtig
