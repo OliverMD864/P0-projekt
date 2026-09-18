@@ -9,7 +9,7 @@ def main():
     print("+-------------------------------+")
     print("| King Domino points calculator |")
     print("+-------------------------------+")
-    image_path = r"KingDominoTestsaet\74.jpg"
+    image_path = r"KingDominoTestsaet\64.jpg"
     if not os.path.isfile(image_path):
         print("Image not found")
         return
@@ -21,7 +21,7 @@ def main():
             print(f"Tile ({x}, {y}):")
             print(get_terrain(tile))
             print("=====")
-            with open("right_and_wrong_txt.txt", "a") as f:
+            with open("answer64.txt", "a") as f:
                 f.write(str(get_terrain(tile)) + "\n")
 
 # Break a board into tiles

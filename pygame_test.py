@@ -9,8 +9,9 @@ right_button_was_pressed = False
 wrong_button_was_pressed = False
 
 margin=2
-image_path = r"KingDominoTestsaet\74.jpg"
-answers_path = open("right_and_wrong_txt.txt", "r").readlines()
+image = 74
+image_path = rf"KingDominoTestsaet\{image}.jpg"
+answers_path = open(f"answer{image}.txt", "r").readlines()
 answers_len = len(answers_path)
 
 
@@ -24,15 +25,17 @@ def show_pic(x, y ):
 
     return sprite
 
+
+done = False
 run_flag = True
 while run_flag:
     
 
-    for i in range(25):
+    if not done and image_num < len(pos):
         screen.fill((255, 255, 255))
         full_image = pygame.image.load(image_path).convert()
 
-        # aner ik hvad * gør
+        
         pic_sprite = show_pic(*pos[image_num])
 
         keys = pygame.key.get_pressed()
@@ -41,7 +44,8 @@ while run_flag:
 
         # write answer to the screen
         font = pygame.font.Font(None, 36)
-        terrain_text = font.render("Hi", True, (0, 0, 0))
+        terrain_text = font.render(answers_path[image_num], True, (0, 0, 0))
+
         screen.blit(terrain_text, (50, 100))
 
 
@@ -57,29 +61,44 @@ while run_flag:
         if right_button.collidepoint(pygame.mouse.get_pos()) and not right_button_was_pressed:
             if pygame.mouse.get_pressed()[0]:
                 # save the image number to a file
-                with open("right_and_wrong_txt.txt", "a") as f:
+                with open("right_and_wrong_74.txt", "a") as f:
                     f.write(str(pos[image_num]) + "rigtig\n")
                 image_num += 1
-                if image_num > 24:
-                    image_num = 0   
+                   
 
         # check if the wrong button is pressed
         if wrong_button.collidepoint(pygame.mouse.get_pos()) and not wrong_button_was_pressed:
             if pygame.mouse.get_pressed()[0]:
                 # save the image number to a file
-                with open("right_and_wrong_txt.txt", "a") as f:
+                with open("right_and_wrong_74.txt", "a") as f:
                     f.write(str(pos[image_num]) + "forkert\n")
                 image_num += 1
-                if image_num > 24:
-                    image_num = 0
 
 
         
         right_button_was_pressed = right_button.collidepoint(pygame.mouse.get_pos()) and pygame.mouse.get_pressed()[0]
         wrong_button_was_pressed = wrong_button.collidepoint(pygame.mouse.get_pos()) and pygame.mouse.get_pressed()[0]
 
+        if image_num == 25:
+         # udregn procent af rigtige  
+            with open("right_and_wrong_74.txt","r") as f:
+                lines = f.readlines()[-25:]
+                right = 0 
+                wrong = 0
+                for line in lines: 
+                    if "rigtig" in line: 
+                        right += 1
+                    elif "forkert" in line: 
+                        wrong += 1
+                procent = right*4
+                procent_text = font.render(str(procent) + "%", True, (0, 0, 0))
+                screen.blit(procent_text, (140, 100))
+                with open("procent rigtige.txt", "a") as f:
+                    f.write(f"Nr.{image} {procent}% rigtig\n")
+
         pygame.display.flip()
-        
+
+
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
