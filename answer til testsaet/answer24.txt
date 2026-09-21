@@ -8,10 +8,10 @@ Swamp
 Grassland
 Forest
 Lake
-Forest
+Mine
 Swamp
 Home
-Forest
+Mine
 Lake
 Mine
 Mine

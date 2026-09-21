@@ -14,12 +14,12 @@ Swamp
 Field
 Field
 Mine
-Forest
+Mine
 Grassland
 Grassland
 Field
 Field
 Field
-Unknown
+Swamp
 Swamp
 Grassland

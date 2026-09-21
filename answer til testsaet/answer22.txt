@@ -10,7 +10,7 @@ Field
 Field
 Unknown
 Forest
-Forest
+Mine
 Field
 Field
 Forest

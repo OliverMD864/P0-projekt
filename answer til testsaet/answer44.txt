@@ -18,7 +18,7 @@ Swamp
 Field
 Mine
 Lake
-Forest
+Mine
 Field
 Field
 Forest

@@ -11,7 +11,7 @@ Forest
 Field
 Lake
 Forest
-Unknown
+Forest
 Swamp
 Field
 Lake
@@ -22,4 +22,4 @@ Field
 Field
 Field
 Mine
-Unknown
+Home

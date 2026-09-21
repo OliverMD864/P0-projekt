@@ -3,7 +3,7 @@ Field
 Grassland
 Grassland
 Unknown
-Forest
+Mine
 Lake
 Lake
 Lake
