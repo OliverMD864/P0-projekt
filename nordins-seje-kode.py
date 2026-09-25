@@ -9,7 +9,7 @@ def main():
     print("+-------------------------------+")
 
     folder_path = r"KingDominoTestsaet"
-    folderLen = 75
+    folderLen = 35
 
     for file in range(1, folderLen + 1):
         image_path = fr"{folder_path}\{file}.jpg"
@@ -51,7 +51,7 @@ def get_tiles(image):
 # Determine the type of terrain in a tile
 def get_terrain(tile):
     hsv_tile = cv.cvtColor(tile, cv.COLOR_BGR2HSV)
-    hue, saturation, value = np.mean(hsv_tile, axis=(0,1)) # Consider using median instead of mean
+    hue, saturation, value = np.median(hsv_tile, axis=(0,1)) # Consider using median instead of mean
     print(f"H: {hue}, S: {saturation}, V: {value}")
     if 26.3026 <= hue <= 26.3026 and 245.1842 <= saturation <= 245.1842 and 191.1801 <= value <= 191.1801:
         return "Field"
