@@ -10,15 +10,26 @@ def main():
     print("| King Domino points calculator |")
     print("+-------------------------------+")
     image_path = rf"King Domino dataset\{image_number}.jpg"
+
+    # hvis filen ikke findes, sig den ikke findes
     if not os.path.isfile(image_path):
         print("Image not found")
         return
+
+    # lav billede om til en opencv matrice
     image = cv.imread(image_path)
+
+    # lav bilede om til 5x5 tiles
     tiles = get_tiles(image)
+
     print(len(tiles))
+
+    # gå igennem alle tiles og print deres terræn
     for y, row in enumerate(tiles):
         for x, tile in enumerate(row):
             print(f"Tile ({x}, {y}):")
+
+            # få terræn for dette felt
             print(get_terrain(tile))
             print("=====")
 
@@ -33,11 +44,13 @@ def get_tiles(image):
 
 # Determine the type of terrain in a tile
 def get_terrain(tile):
+    # transformere vi om til HSV i stedet for BGR
     hsv_tile = cv.cvtColor(tile, cv.COLOR_BGR2HSV)
+    # finder median værdien for denne tile
     hue, saturation, value = np.median(hsv_tile, axis=(0,1))
     print(f"H: {hue}, S: {saturation}, V: {value}")
 
-    
+    # check om median værdien ligger inden for de forskellige terræn typer
     if (23-margin) <= hue <= (26+margin) and (223-margin) <= saturation <= (255+margin) and (145-margin) <= value <= (205+margin):
         return "Field"
     if (23-margin) <= hue <= (66+margin) and (65-margin) <= saturation <= (222+margin) and (34-margin) <= value <= (68+margin):
